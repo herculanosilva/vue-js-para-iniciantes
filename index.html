@@ -10,7 +10,14 @@
 <body>
     Teste Live Serve
     <div id="app">
-        {{ mensagem }}
+        {{ mensagem }} <br>
+        Valor total = {{  valorTotal }} <br>
+        Logado: {{ logado }} <br>
+        Hobbie: {{ hobbies[1] }} <br>
+        Perfil {{ perfil.site }}, {{ perfil.cursos[0].nome }}
+
+
+
     </div>
     <script>
         
@@ -18,7 +25,29 @@
             //el indica qual o elemento o vue dele selecionar
             el: '#app', //# para selecionar por id | .para selecionar por class
             data:{ //guarda variaveis/atributos reativos
-                mensagem : 'Primeiro template controlado por Vue'
+                mensagem : 'Primeiro template controlado por Vue',
+                valorTotal: 150.47, //numero
+                logado: false, //boolean
+                hobbies: [
+                    'Comer',
+                    'Colecionar video games antigos',
+                    'Ciclimos'
+                ],
+                perfil: {
+                    nome: 'Herculano',
+                    site: 'herculanosilva.com.br',
+                    idade: 24,
+                    cursos: [
+                        {
+                            nome: 'laravel', 
+                            cargaHoraria: '50 horas'
+                        },
+                        {
+                            nome: 'Banco de Dados Relacionais', 
+                            cargaHoraria: '40 horas'
+                        }
+                    ]
+                } 
             }
         }); //vm = ViewModel
 
