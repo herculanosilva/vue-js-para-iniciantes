@@ -6,39 +6,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="./vue.js"></script>
     <title>Document</title>
+    <style>
+        .verde{
+            color:green;
+        }
+    </style>
 </head>
 <body>
     Teste Live Serve
     <div id="app">
-        {{ somar() }} <br>
-        {{ subtrair() }} <br>
-        {{ multiplicar() }} <br>
-        {{ dividir() }} <br>
+        <a v-bind:href="site">Site</a>
+        <p v-bind:class="cor">Entendendo a diretive v-bind</p>
+        <input type="text" v-bind:placeholder="instrucaoDePreencimento" v-bind:value="valor">
+        <input type="checkbox" v-bind:checked="check">
     </div>
     <script>
         
         const vm = new Vue({
             el: '#app',
             data: {
-                n1: 10,
-                n2: 5,
+                site: 'https://herculanosilva.com.br',
+                cor: 'verde',
+                instrucaoDePreencimento: 'Placeholder - Diretiva v-bind',
+                valor: 'Entendendo a diretiva v-bind',
+                check: false,
             },
-            methods:{
-                somar: function somar(){ // Convencional
-                    return this.n1 + this.n2;
-                },
-                subtrair: function() { // Anônima
-                    return this.n1 - this.n2;
-                },
-                multiplicar: ()=> { // Arrow function - Contexto léxico
-                    return 4 * 2;
-                },
-                dividir() { // forma mais enxuta de definir os pares de chave/valor
-                    return this.n1 / this.n2;
-                },
-                
-            }
-
+            methods:{},
         }); 
 
     </script>
