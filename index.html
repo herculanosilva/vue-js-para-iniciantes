@@ -10,15 +10,18 @@
         .verde{
             color:green;
         }
+        .negrito{
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
     Teste Live Serve
     <div id="app">
-        <a v-bind:href="site">Site</a>
-        <p v-bind:class="cor">Entendendo a diretive v-bind</p>
-        <input type="text" v-bind:placeholder="instrucaoDePreencimento" v-bind:value="valor">
-        <input type="checkbox" v-bind:checked="check">
+        <a :href="site" >Site</a>
+        <p :class="cor" class="negrito">Entendendo a diretive </p> <!-- encadeamento de valores -->
+        <input type="text" :placeholder="instrucaoDePreencimento" :value="valor">
+        <input type="checkbox" :checked="check">
     </div>
     <script>
         
@@ -29,7 +32,7 @@
                 cor: 'verde',
                 instrucaoDePreencimento: 'Placeholder - Diretiva v-bind',
                 valor: 'Entendendo a diretiva v-bind',
-                check: false,
+                check: true,
             },
             methods:{},
         }); 
