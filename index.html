@@ -14,29 +14,29 @@
         {{ subtrair() }} <br>
         {{ multiplicar() }} <br>
         {{ dividir() }} <br>
-        {{ numeroAleatorio() }}
     </div>
     <script>
         
         const vm = new Vue({
             el: '#app',
-            data: {},
+            data: {
+                n1: 10,
+                n2: 5,
+            },
             methods:{
                 somar: function somar(){ // Convencional
-                    return 4 + 2;
+                    return this.n1 + this.n2;
                 },
                 subtrair: function() { // Anônima
-                    return 4 - 2;
+                    return this.n1 - this.n2;
                 },
-                multiplicar: ()=> { // Arrow function
+                multiplicar: ()=> { // Arrow function - contexto léxico
                     return 4 * 2;
                 },
                 dividir() { // forma mais enxuta de definir os pares de chave/valor
-                    return 4 / 2;
+                    return this.n1 / this.n2;
                 },
-                numeroAleatorio: function numeroAleatorio() {
-                    return Math.random();
-                }
+                
             }
 
         }); 
