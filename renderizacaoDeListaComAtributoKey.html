@@ -13,8 +13,16 @@
 <body>
     <div id="app">
         <ul>
+            <li v-for="c in comentarios">{{ c.id }} - {{ c.comentario }}</li>
+        </ul>
+        <button @click="adcionarElemento()">Adcionar</button>
+        <button @click="removerElemento()">Remover</button>
+        <button @click="modificarElemento()">Modificar</button>
+
+        <ul>
             <li v-for="n in numero">{{ n }}</li>
         </ul>
+
         <ul>
             <li v-for="(curso, key) in cursos" v-text="key +' - '+curso"></li>
         </ul>
@@ -55,6 +63,11 @@
             el: '#app',
             data: {
                 // atributos
+                comentarios: [
+                    {id: 1, comentario: 'comentário 1'},
+                    {id: 2, comentario: 'comentário 2'},
+                    {id: 3, comentario: 'comentário 3'},
+                ],
                 numero: 5,
                 cursos: ['Laravel','Vue','Banco de Dados','PHP','CSS'],
                 cursos2: {
@@ -86,6 +99,27 @@
                     misturado[3] = this.publicacoes[2]
 
                     this.publicacoes = misturado
+                },
+
+                adcionarElemento(){
+                    // this.comentarios[3] = {id: 4, comentario: 'Novo comentario'}
+                    // console.log(this.comentarios)
+
+                    //push vai adicionar novos elementos no array
+                    this.comentarios.push({id: 4, comentario: 'Novo Comentário'})
+                },
+                removerElemento(){
+                    //push vai remover elementos no array
+                    this.comentarios.pop()
+                },
+                modificarElemento(){
+                    // this.comentarios[1] = {id: 2, comentario: 'Comentario 2 atualizado'}
+                    // console.log(this.comentarios)
+                    // (<array>,<chave>,<novo_valor>)
+                    this.$set(
+                        this.comentarios,
+                        1,
+                        {id: 2, comentario: 'Comentário 2 atualizado'})
                 }
             },
         }); 
