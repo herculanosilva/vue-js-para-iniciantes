@@ -13,6 +13,9 @@
 <body>
     <div id="app">
         <ul>
+            <li v-for="n in numero">{{ n }}</li>
+        </ul>
+        <ul>
             <li v-for="(curso, key) in cursos" v-text="key +' - '+curso"></li>
         </ul>
         <hr>
@@ -52,6 +55,7 @@
             el: '#app',
             data: {
                 // atributos
+                numero: 5,
                 cursos: ['Laravel','Vue','Banco de Dados','PHP','CSS'],
                 cursos2: {
                     1000: {
