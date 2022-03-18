@@ -11,10 +11,41 @@
 </head>
 <body>
     <div id="app">
-        <p>{{paciente}}</p><br>
-        <!-- <input type="text" v-bind:value="paciente" @keyup="setPaciente($event)"> -->
+        <p>{{paciente}}</p>
+        <p>{{sexo}}</p>
+        <p>{{plano}}</p>
+        <p>{{doencas}}</p>
+        <p>{{diagnostico}}</p>
+        
         <!-- <input type="text" v-bind:value="paciente" @keyup="paciente = $event.target.value"> -->
+
+        <!-- two-way-data binding em input -->
         <input type="text" v-model="paciente">
+        <hr>
+
+        <!-- two-way-data binding em radio -->
+        <input type="radio" value="F" v-model="sexo">Feminino
+        <input type="radio" value="M" v-model="sexo">Masculino
+        <hr>
+
+        <!-- two-way-data binding em select -->
+        <select v-model="plano">
+            <option value="" disabled>Selecione um plano</option>
+            <option value="1">Básico</option>
+            <option value="2">Intemediario</option>
+            <option value="3">Master</option>
+            <option value="4">Premium</option>
+        </select>
+        <hr>
+
+        <!-- two-way-data binding em select -->
+        <input type="checkbox" value="100" v-model="doencas" name="doencas[]">Asma
+        <input type="checkbox" value="101" v-model="doencas" name="doencas[]">Diabetes tipo 1
+        <input type="checkbox" value="102" v-model="doencas" name="doencas[]">Vitiligo
+        <input type="checkbox" value="103" v-model="doencas" name="doencas[]">Rinite
+        <hr>
+
+        <textarea name="" id="" cols="30" rows="10" v-model="diagnostico"></textarea>
     </div>
 
     <script>
@@ -22,7 +53,12 @@
         const vm = new Vue({
             el: '#app',
             data: {
+                //atributos da instancia do vue
                 paciente: 'João da Silva',
+                sexo: '',
+                plano: '',
+                doencas: [],
+                diagnostico: '',
             },
             methods: {
                 //usando o: v-bind e o v-on "@"
