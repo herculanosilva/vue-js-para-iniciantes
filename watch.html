@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./vue.js"></script>
+    <title>Document</title>
+    <style>      
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- permite assistir nos posibilita reagir a alteração dos dados  -->
+        <span>Paciente : </span><input type="text" v-model="paciente">
+        <hr>
+        <ul>
+            <li v-for="p in lista"><b>Nome </b>{{p.nome}} - <b>Idade :</b>{{p.idade}}</li>
+        </ul>
+    </div>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                //atributos
+                paciente: '',
+                pacientes:  [
+                    {nome: 'Herculano', idade: 24},
+                    {nome: 'Hercules', idade: 10},
+                    {nome: 'Heraldo', idade: 19},
+                    {nome: 'Hetor', idade: 32},
+                    {nome: 'Herton', idade: 78},
+                ],
+                lista: [],
+            },
+            methods: {},
+            computed: {},
+            watch: {
+                //mesmo nome do atributo deve ser o metodo  também
+                paciente(valorNovo){
+                    console.log(valorNovo)
+                    this.lista = this.pacientes.filter(p => p.nome.match(valorNovo))
+                }
+            }
+        })
+    </script>
+</body>
+</html>
