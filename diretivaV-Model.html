@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./vue.js"></script>
+    <title>Document</title>
+    <style>      
+    </style>
+</head>
+<body>
+    <div id="app">
+        <p>{{paciente}}</p><br>
+        <!-- <input type="text" v-bind:value="paciente" @keyup="setPaciente($event)"> -->
+        <!-- <input type="text" v-bind:value="paciente" @keyup="paciente = $event.target.value"> -->
+        <input type="text" v-model="paciente">
+    </div>
+
+    <script>
+
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                paciente: 'João da Silva',
+            },
+            methods: {
+                //usando o: v-bind e o v-on "@"
+                // setPaciente(evento){ 
+                //     this.paciente = evento.target.value
+                // }
+            },
+            computed: {}
+        })
+
+    </script>
+</body>
+</html>
